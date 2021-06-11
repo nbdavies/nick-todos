@@ -8,13 +8,16 @@ class ToDoList extends React.Component {
   }
 
   render() {
-    return <div>Hello from React!</div>
+    return(
+      <div>
+        <ul>
+          {this.props.items.map(item => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </div>
+    )
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <ToDoList />,
-    document.body.appendChild(document.createElement('div')),
-  )
-})
+export default ToDoList;
