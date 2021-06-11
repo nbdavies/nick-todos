@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import ToDoList from './to_do_list'
 
 class ToDoApp extends React.Component {
