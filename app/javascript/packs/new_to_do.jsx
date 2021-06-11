@@ -13,7 +13,7 @@ class NewToDo extends React.Component {
   render() {
     return(
       <form onSubmit={this.handleSubmit}>
-        <input type='text' name='to_do' onChange={this.handleChange} value={this.state.item.description}/>
+        <input type='text' name='description' onChange={this.handleChange} value={this.state.item.description}/>
         <input type='submit' value='Create'/>
       </form>
     )
@@ -21,7 +21,18 @@ class NewToDo extends React.Component {
   
   handleSubmit(event) {
     event.preventDefault()
-    this.props.onCreation(this.state.item)
+    
+    fetch('http://localhost:3000/to_do_items', { 
+      method: 'POST',
+      body: JSON.stringify(this.state.item),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.props.onCreation(data)
+      })
     this.setState({
       item: { description: '' }
     })

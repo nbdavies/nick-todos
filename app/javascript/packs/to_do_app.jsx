@@ -7,7 +7,7 @@ class ToDoApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [{ description: "do something"}, {description: "do something else"}]
+      items: []
     }
     this.handleCreation = this.handleCreation.bind(this);
   }
