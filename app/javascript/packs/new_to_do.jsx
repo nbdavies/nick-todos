@@ -4,7 +4,7 @@ class NewToDo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      item: ''
+      item: { description: ''}
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -13,7 +13,7 @@ class NewToDo extends React.Component {
   render() {
     return(
       <form onSubmit={this.handleSubmit}>
-        <input type='text' name='to_do' onChange={this.handleChange} value={this.state.item}/>
+        <input type='text' name='to_do' onChange={this.handleChange} value={this.state.item.description}/>
         <input type='submit' value='Create'/>
       </form>
     )
@@ -23,14 +23,14 @@ class NewToDo extends React.Component {
     event.preventDefault()
     this.props.onCreation(this.state.item)
     this.setState({
-      item: ''
+      item: { description: '' }
     })
     return false;
   }
   
   handleChange(event) {
     this.setState({
-      item: event.target.value
+      item: { description: event.target.value }
     })
   }
 }

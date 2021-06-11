@@ -10,7 +10,7 @@ class ToDoList extends React.Component {
       <div>
         <ul>
           {this.props.items.map(item => (
-            <li key={item}>{item}</li>
+            <li key={item.description}>{item.description}</li>
           ))}
         </ul>
       </div>
