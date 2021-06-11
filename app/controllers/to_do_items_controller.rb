@@ -6,6 +6,10 @@ class ToDoItemsController < ApplicationController
     render json: to_do_item
   end
   
+  def index
+    render json: ToDoItem.all
+  end
+  
   protected
   # 
   # def json_request?

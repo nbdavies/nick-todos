@@ -11,6 +11,16 @@ class ToDoApp extends React.Component {
     }
     this.handleCreation = this.handleCreation.bind(this);
   }
+  
+  componentDidMount() {
+    fetch('http://localhost:3000/to_do_items', {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => { this.setState({ items: data }) })
+  }
 
   render() {
     return(
